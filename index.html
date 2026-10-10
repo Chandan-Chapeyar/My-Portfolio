@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full Stack Developer Portfolio">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="spline-bg" aria-hidden="true">
+    <spline-viewer events-target="global" url="https://prod.spline.design/tHhQ2FsfcC39ENUJ/scene.splinecode"></spline-viewer>
+  </div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="liquid-glass" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="noise" />
+      <feGaussianBlur in="noise" stdDeviation="2" result="softNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="28" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+  
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="logo" href="#home">C<span>.</span>Chapeyar</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☾</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">FULL STACK DEVELOPER</p>
+          <h1>Building clean, useful &amp; responsive digital experiences.</h1>
+          <p class="hero-text">
+            I'm <strong>Chandan Chapeyar</strong>, a BCA student focused on web development,
+            problem solving, and learning how modern applications work from frontend to backend.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+          </div>
+          <div class="quick-links" aria-label="Social links">
+            <a href="https://github.com/Chandan-Chapeyar" aria-label="GitHub">GitHub
+              <svg class="social-icon github-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/chandan-chapeyar/" aria-label="LinkedIn">LinkedIn
+              <svg class="social-icon linkedin-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="code-window">
+            <div class="window-bar"><i></i><i></i><i></i></div>
+            <pre><code><span class="purple">const</span> developer = {
+  role: <span class="green">"Full Stack Developer"</span>,
+  focus: [
+    <span class="green">"Web Development"</span>,
+    <span class="green">"Problem Solving"</span>
+  ],
+  mindset: <span class="green">"Keep Learning"</span>
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="about">
+      <div class="container two-col">
+        <div class="section-heading reveal">
+          <p class="eyebrow">ABOUT ME</p>
+          <h2>Learning by building.</h2>
+        </div>
+        <div class="about-copy reveal">
+          <p>
+            I'm developing my skills in software and web development. I enjoy turning
+            ideas into working interfaces and gradually learning the backend, databases, APIs,
+            and deployment side of applications.
+          </p>
+          <p>
+            My current goal is to become a stronger full-stack developer by building real projects,
+            writing maintainable code, and understanding why the technology works—not just copying it.
+          </p>
+          <div class="facts">
+            <div><strong>01</strong><span>Junior Developer</span></div>
+            <div><strong>02</strong><span>Web &amp; Software Projects</span></div>
+            <div><strong>03</strong><span>Always Learning</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">SKILLS &amp; TOOLS</p>
+          <h2>My current toolkit.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal"><span>01</span>
+            <h3>HTML</h3>
+            <p>Semantic page structure and accessible markup.</p>
+            <span>80%</span>
+            <div class="progress-bar">
+              <div class="progress" data-progress="80"></div>
+            </div>
+          </article>
+          <article class="skill-card reveal"><span>02</span>
+            <h3>CSS</h3>
+            <p>Responsive layouts, components, and visual styling.</p>
+            <span>75%</span>
+            <div class="progress-bar">
+              <div class="progress" data-progress="75"></div>
+            </div>
+          </article>
+          <article class="skill-card reveal"><span>03</span>
+            <h3>JavaScript</h3>
+            <p>Interactive interfaces and client-side logic.</p>
+            <span>70%</span>
+            <div class="progress-bar">
+              <div class="progress" data-progress="70"></div>
+            </div>
+          </article>
+          <article class="skill-card reveal"><span>04</span>
+            <h3>Python</h3>
+            <p>Programming fundamentals and backend learning.</p>
+            <span>90%</span>
+            <div class="progress-bar">
+              <div class="progress" data-progress="90"></div>
+            </div>
+          </article>
+          <article class="skill-card reveal"><span>05</span>
+            <h3>Java</h3>
+            <p>Object-oriented programming fundamentals.</p>
+            <span>40%</span>
+            <div class="progress-bar">
+              <div class="progress" data-progress="40"></div>
+            </div>
+          </article>
+          <article class="skill-card reveal"><span>06</span>
+            <h3>C</h3>
+            <p>Programming fundamentals and problem solving.</p>
+            <span>50%</span>
+            <div class="progress-bar">
+              <div class="progress" data-progress="50"></div>
+            </div>
+          </article>
+          <article class="skill-card reveal"><span>07</span>
+            <h3>Git &amp; GitHub</h3>
+            <p>Version control and project collaboration.</p>
+            <span>90%</span>
+            <div class="progress-bar">
+              <div class="progress" data-progress="90"></div>
+            </div>
+          </article>
+          <article class="skill-card reveal"><span>08</span>
+            <h3>DSA</h3>
+            <p>Data structures, algorithms, and logical thinking.</p>
+            <span>50%</span>
+            <div class="progress-bar">
+              <div class="progress" data-progress="50"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">PROJECTS</p>
+          <h2>Selected work.</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-number">01</div>
+            <h3>Project Name</h3>
+            <a href="#" class="project-link">View project ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">CONTACT</p>
+          <h2>Let's build something useful.</h2>
+          <p>
+            Have a project, internship opportunity, or useful feedback?
+            Send a message using the form.
+          </p>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name">
+          <small class="error" id="nameError"></small>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          <small class="error" id="emailError"></small>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Tell me about your message..."></textarea>
+          <small class="error" id="messageError"></small>
+
+          <button class="btn primary" type="submit">Send Message</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Chandan Chapeyar. Made with passion, powered by ☕ and code.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script type="module" src="https://cdn.spline.design/@splinetool/viewer@2.0.75/build/spline-viewer.js"></script>
+</body>
+
+</html>
