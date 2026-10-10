@@ -813,12 +813,9 @@ body.light .tags span {
 }
 
 /* ===== Mobile performance ===== */
-/* lightweight background when the 3D scene is skipped */
+/* phones & tablets: no 3D scene, just the plain page background (dark in dark mode) */
 body.no-3d .spline-bg {
-  background:
-    radial-gradient(60% 40% at 70% 20%, rgba(185, 108, 255, .22), transparent 70%),
-    radial-gradient(50% 40% at 20% 80%, rgba(109, 124, 255, .18), transparent 70%),
-    var(--bg);
+  background: var(--bg);
 }
 
 @media (max-width: 900px) {

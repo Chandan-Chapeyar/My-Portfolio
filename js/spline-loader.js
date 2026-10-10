@@ -1,19 +1,14 @@
-// Loads the heavy 3D Spline viewer AFTER the page is usable, and skips it on
-// weak phones / data-saver mode (a lightweight gradient is shown instead).
+// Desktop / laptop: load the 3D Spline robot (after the page is usable).
+// Phones & tablets (small or touch-only screens): no 3D at all, plain dark background.
 (function () {
-  var nav = navigator;
-  var smallScreen = window.matchMedia("(max-width: 700px)").matches;
-  var saveData = nav.connection && nav.connection.saveData;
-  var lowMemory = nav.deviceMemory && nav.deviceMemory <= 4;
-  var fewCores = nav.hardwareConcurrency && nav.hardwareConcurrency <= 4;
-  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var isPhoneOrTablet = window.matchMedia(
+    "(max-width: 900px), (hover: none) and (pointer: coarse)"
+  ).matches;
 
-  var skip3D = saveData || reducedMotion || (smallScreen && (lowMemory || fewCores));
-
-  if (skip3D) {
+  if (isPhoneOrTablet) {
     document.body.classList.add("no-3d");
     var viewer = document.querySelector("spline-viewer");
-    if (viewer) viewer.remove();
+    if (viewer) viewer.remove(); // the scene is never downloaded
     return;
   }
 
