@@ -652,9 +652,13 @@ body.light {
 }
 
 /* soft pastel scene instead of a muddy grey wash over the dark 3D scene */
-/* robot/scene stays exactly as in dark mode: no colour filter, no tint */
+body.light .spline-bg spline-viewer {
+  /* flips the dark scene to a light one so the robot stays fully visible */
+  filter: invert(1) hue-rotate(180deg) contrast(1.05);
+}
+
 body.light .spline-bg::after {
-  background: transparent;
+  background: rgba(246, 247, 251, .10);
 }
 
 body.light .site-header {
