@@ -22,6 +22,21 @@ themeToggle.addEventListener("click", () => {
   themeToggle.textContent = document.body.classList.contains("light") ? "☀" : "☾";
 });
 
+function closeMenu() {
+  navLinks.classList.remove("open");
+  navToggle.setAttribute("aria-expanded", "false");
+}
+
+document.addEventListener("click", event => {
+  if (!navLinks.classList.contains("open")) return;
+  if (navLinks.contains(event.target) || navToggle.contains(event.target)) return;
+  closeMenu();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeMenu();
+});
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const observer = new IntersectionObserver(entries => {
