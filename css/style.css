@@ -48,95 +48,6 @@ input,
 textarea {
   font: inherit;
 }
-/* ===== Light theme polish ===== */
-body.light {
-  --text: #0b0e14;
-  --muted: #3d4555;
-  --line: rgba(17, 20, 27, .16);
-  --accent: #7b2fd6;
-  --accent-2: #4f5fe8;
-  --danger: #d12c2c;
-  --success: #17803f;
-}
-
-/* soft pastel scene instead of a muddy grey wash over the dark 3D scene */
-body.light .spline-bg spline-viewer {
-  /* flips the dark scene to a light one so the robot stays fully visible */
-  filter: invert(1) hue-rotate(180deg) contrast(1);
-}
-
-body.light .spline-bg::after {
-  background: rgba(246, 247, 251, .10);
-}
-
-body.light .site-header {
-  background: rgba(246, 247, 251, .35);
-}
-
-body.light .nav-links>a:hover {
-  color: var(--accent);
-}
-
-/* frosted white cards with soft shadows */
-body.light .skill-card,
-body.light .project-card,
-body.light .facts div {
-  background: linear-gradient(145deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .08) 55%, rgba(255, 255, 255, .20));
-  border: 1px solid rgba(255, 255, 255, .75);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .9), inset -8px -8px 22px rgba(17, 20, 27, .05), 0 14px 34px rgba(40, 50, 90, .16);
-}
-
-body.light .skill-card:hover,
-body.light .project-card:hover {
-  border-color: color-mix(in srgb, var(--accent) 55%, #fff);
-  box-shadow: inset 0 1px 1px #fff, 0 18px 40px rgba(123, 47, 214, .22);
-}
-
-body.light .btn.primary {
-  background: linear-gradient(135deg, rgba(123, 47, 214, .82), rgba(79, 95, 232, .72));
-  border-color: rgba(255, 255, 255, .5);
-  color: #fff;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .45), 0 12px 28px rgba(123, 47, 214, .35);
-}
-
-body.light .btn.secondary,
-body.light .theme-toggle,
-body.light .nav-toggle {
-  background: linear-gradient(145deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .08) 55%, rgba(255, 255, 255, .20));
-  border: 1px solid rgba(255, 255, 255, .75);
-  color: var(--text);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .9), 0 8px 22px rgba(40, 50, 90, .14);
-}
-
-/* keep the code window dark so the syntax colours stay readable */
-body.light .code-window {
-  background: linear-gradient(145deg, rgba(15, 19, 32, .95), rgba(22, 27, 44, .90));
-  border-color: rgba(17, 20, 27, .25);
-  box-shadow: 0 30px 70px rgba(40, 50, 90, .30);
-}
-
-body.light .contact-form input,
-body.light .contact-form textarea {
-  background: linear-gradient(145deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .08) 55%, rgba(255, 255, 255, .20));
-  border: 1px solid rgba(255, 255, 255, .75);
-  color: var(--text);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .9), 0 8px 22px rgba(40, 50, 90, .12);
-}
-
-body.light .contact-form input::placeholder,
-body.light .contact-form textarea::placeholder {
-  color: #6b7384;
-}
-
-body.light .progress-bar {
-  background: rgba(17, 20, 27, .12);
-}
-
-body.light .tags span {
-  background: rgba(17, 20, 27, .07);
-  color: var(--muted);
-}
-
 
 .container {
   width: min(calc(100% - 96px), var(--max));
@@ -293,6 +204,7 @@ body.light {
   z-index: 20;
   backdrop-filter: blur(18px);
   background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 0;
 }
 
 .nav {
@@ -483,6 +395,7 @@ h3 {
   width: 20px;
   height: 20px;
   flex: none;
+  color: var(--text);
 }
 
 .hero-card {
@@ -648,6 +561,10 @@ transition: width 1.5s ease-in-out;
   font-weight: 800;
 }
 
+.contact-section {
+  border-top: 0;
+}
+
 .contact-form {
   display: grid;
   gap: 8px;
@@ -695,6 +612,7 @@ transition: width 1.5s ease-in-out;
 }
 
 .footer {
+  border-top: 0;
   padding: 25px 0;
 }
 
@@ -720,6 +638,91 @@ transition: width 1.5s ease-in-out;
 .reveal.visible {
   opacity: 1;
   transform: none;
+}
+
+/* ===== Light theme polish ===== */
+body.light {
+  --text: #0b0e14;
+  --muted: #3d4555;
+  --line: rgba(17, 20, 27, .16);
+  --accent: #7b2fd6;
+  --accent-2: #4f5fe8;
+  --danger: #d12c2c;
+  --success: #17803f;
+}
+
+/* soft pastel scene instead of a muddy grey wash over the dark 3D scene */
+/* robot/scene stays exactly as in dark mode: no colour filter, no tint */
+body.light .spline-bg::after {
+  background: transparent;
+}
+
+body.light .site-header {
+  background: rgba(246, 247, 251, .35);
+}
+
+body.light .nav-links>a:hover {
+  color: var(--accent);
+}
+
+/* frosted white cards with soft shadows */
+body.light .skill-card,
+body.light .project-card,
+body.light .facts div {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .08) 55%, rgba(255, 255, 255, .20));
+  border: 1px solid rgba(255, 255, 255, .75);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .9), inset -8px -8px 22px rgba(17, 20, 27, .05), 0 14px 34px rgba(40, 50, 90, .16);
+}
+
+body.light .skill-card:hover,
+body.light .project-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, #fff);
+  box-shadow: inset 0 1px 1px #fff, 0 18px 40px rgba(123, 47, 214, .22);
+}
+
+body.light .btn.primary {
+  background: linear-gradient(135deg, rgba(123, 47, 214, .82), rgba(79, 95, 232, .72));
+  border-color: rgba(255, 255, 255, .5);
+  color: #fff;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .45), 0 12px 28px rgba(123, 47, 214, .35);
+}
+
+body.light .btn.secondary,
+body.light .theme-toggle,
+body.light .nav-toggle {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .08) 55%, rgba(255, 255, 255, .20));
+  border: 1px solid rgba(255, 255, 255, .75);
+  color: var(--text);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .9), 0 8px 22px rgba(40, 50, 90, .14);
+}
+
+/* keep the code window dark so the syntax colours stay readable */
+body.light .code-window {
+  background: linear-gradient(145deg, rgba(15, 19, 32, .95), rgba(22, 27, 44, .90));
+  border-color: rgba(17, 20, 27, .25);
+  box-shadow: 0 30px 70px rgba(40, 50, 90, .30);
+}
+
+body.light .contact-form input,
+body.light .contact-form textarea {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .34), rgba(255, 255, 255, .08) 55%, rgba(255, 255, 255, .20));
+  border: 1px solid rgba(255, 255, 255, .75);
+  color: var(--text);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .9), 0 8px 22px rgba(40, 50, 90, .12);
+}
+
+body.light .contact-form input::placeholder,
+body.light .contact-form textarea::placeholder {
+  color: #6b7384;
+}
+
+body.light .progress-bar {
+  background: rgba(17, 20, 27, .12);
+}
+
+body.light .tags span {
+  background: rgba(17, 20, 27, .07);
+  color: var(--muted);
 }
 
 @media (max-width: 900px) {
@@ -806,5 +809,64 @@ transition: width 1.5s ease-in-out;
 
   .footer-inner {
     flex-direction: column;
+  }
+}
+
+/* ===== Mobile performance ===== */
+/* lightweight background when the 3D scene is skipped */
+body.no-3d .spline-bg {
+  background:
+    radial-gradient(60% 40% at 70% 20%, rgba(185, 108, 255, .22), transparent 70%),
+    radial-gradient(50% 40% at 20% 80%, rgba(109, 124, 255, .18), transparent 70%),
+    var(--bg);
+}
+
+@media (max-width: 900px) {
+
+  /* blur + glass-bending filters are very expensive on phone GPUs: use light blur only */
+  .btn,
+  .skill-card,
+  .project-card,
+  .code-window {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .facts div,
+  .theme-toggle,
+  .nav-toggle,
+  .contact-form input,
+  .contact-form textarea {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .site-header {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  .reveal {
+    transition-duration: .4s;
+  }
+}
+
+@media (hover: none) {
+
+  /* no hover on touch screens, so skip the shine effect */
+  .btn::before,
+  .skill-card::before,
+  .project-card::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
