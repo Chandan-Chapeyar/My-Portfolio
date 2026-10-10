@@ -1,7 +1,7 @@
 // Local / Render / Heroku entry point: serves the website AND the API.
 const path = require("path");
 const express = require("express");
-const app = require("./app");
+const app = require("./lib/app");
 
 const site = express.Router();
 site.use("/css", express.static(path.join(__dirname, "css")));
