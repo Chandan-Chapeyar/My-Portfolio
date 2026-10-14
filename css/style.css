@@ -1,4 +1,4 @@
-/* Theme colors and shared sizing used throughout the page. */
+/* ===== Theme tokens ===== */
 :root {
   --bg: #0b0d12;
   --surface: #121620;
@@ -12,17 +12,38 @@
   --success: #69df9b;
   --max: 1560px;
   --radius: 22px;
+  --glass-fill: linear-gradient(145deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .04) 55%, rgba(255, 255, 255, .10));
+  --glass-border: rgba(255, 255, 255, .28);
+  --glass-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, .55),
+    inset 0 -1px 1px rgba(255, 255, 255, .12),
+    inset 8px 8px 22px rgba(255, 255, 255, .07),
+    inset -8px -8px 22px rgba(0, 0, 0, .18),
+    0 18px 40px rgba(0, 0, 0, .35);
 }
 
 body.light {
   --bg: #f6f7fb;
   --surface: #ffffff;
   --surface-2: #eef0f6;
-  --text: #11141b;
-  --muted: #596170;
-  --line: rgba(17, 20, 27, .12);
+  --text: #0b0e14;
+  --muted: #3d4555;
+  --line: rgba(17, 20, 27, .16);
+  --accent: #7b2fd6;
+  --accent-2: #4f5fe8;
+  --danger: #d12c2c;
+  --success: #17803f;
+  --glass-fill: linear-gradient(145deg, rgba(255, 255, 255, .75), rgba(255, 255, 255, .30) 55%, rgba(255, 255, 255, .55));
+  --glass-border: rgba(255, 255, 255, .85);
+  --glass-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 1),
+    inset 0 -1px 1px rgba(17, 20, 27, .06),
+    inset 8px 8px 22px rgba(255, 255, 255, .5),
+    inset -8px -8px 22px rgba(17, 20, 27, .06),
+    0 18px 40px rgba(17, 20, 27, .14);
 }
 
+/* ===== Global defaults and page layout ===== */
 * {
   box-sizing: border-box;
 }
@@ -63,7 +84,11 @@ textarea {
   background: transparent;
 }
 
-/* Spline 3D scene as a fixed full-page background */
+.center {
+  text-align: center;
+}
+
+/* ===== 3D page background ===== */
 .spline-bg {
   position: fixed;
   inset: 0;
@@ -78,7 +103,7 @@ textarea {
   height: 100%;
 }
 
-/* Keeps text readable over the scene */
+/* A soft overlay keeps text readable over the scene. */
 .spline-bg::after {
   content: "";
   position: absolute;
@@ -86,29 +111,7 @@ textarea {
   background: color-mix(in srgb, var(--bg) 45%, transparent);
 }
 
-/* ===== 3D Liquid Glass ===== */
-:root {
-  --glass-fill: linear-gradient(145deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .04) 55%, rgba(255, 255, 255, .10));
-  --glass-border: rgba(255, 255, 255, .28);
-  --glass-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, .55),
-    inset 0 -1px 1px rgba(255, 255, 255, .12),
-    inset 8px 8px 22px rgba(255, 255, 255, .07),
-    inset -8px -8px 22px rgba(0, 0, 0, .18),
-    0 18px 40px rgba(0, 0, 0, .35);
-}
-
-body.light {
-  --glass-fill: linear-gradient(145deg, rgba(255, 255, 255, .75), rgba(255, 255, 255, .30) 55%, rgba(255, 255, 255, .55));
-  --glass-border: rgba(255, 255, 255, .85);
-  --glass-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 1),
-    inset 0 -1px 1px rgba(17, 20, 27, .06),
-    inset 8px 8px 22px rgba(255, 255, 255, .5),
-    inset -8px -8px 22px rgba(17, 20, 27, .06),
-    0 18px 40px rgba(17, 20, 27, .14);
-}
-
+/* ===== Shared glass surfaces and effects ===== */
 .btn,
 .skill-card,
 .project-card,
@@ -191,11 +194,7 @@ body.light {
   box-shadow: var(--glass-shadow), 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent), 0 14px 34px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
-.center {
-  text-align: center;
-}
-
-/* Header and navigation */
+/* ===== Header and navigation ===== */
 .site-header {
   position: sticky;
   top: 0;
@@ -219,8 +218,7 @@ body.light {
 }
 
 .logo span,
-.eyebrow,
-.project-link {
+.eyebrow {
   color: var(--accent);
 }
 
@@ -268,7 +266,7 @@ body.light {
   background: var(--text);
 }
 
-/* Hero section and shared page headings */
+/* ===== Hero and shared page headings ===== */
 .hero {
   min-height: calc(100vh - 72px);
   display: grid;
@@ -289,6 +287,7 @@ body.light {
 
 .hero-card {
   grid-column: 3;
+  perspective: 1000px;
 }
 
 .eyebrow {
@@ -397,10 +396,6 @@ h3 {
   color: var(--text);
 }
 
-.hero-card {
-  perspective: 1000px;
-}
-
 .code-window {
   overflow: hidden;
   border: 1px solid var(--line);
@@ -441,7 +436,7 @@ pre {
   color: #86e6b0;
 }
 
-/* About section and education timeline */
+/* ===== About section and education timeline ===== */
 .two-col,
 .contact-grid {
   display: grid;
@@ -560,7 +555,7 @@ body.light .education-block {
   font-size: .92rem;
 }
 
-/* Skills and certificate cards */
+/* ===== Skills and certificate cards ===== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -635,7 +630,7 @@ body.light .education-block {
   padding-top: 4px;
 }
 
-/* Projects and shared card styles */
+/* ===== Shared cards ===== */
 .skill-card,
 .project-card {
   border: 1px solid var(--line);
@@ -672,6 +667,7 @@ body.light .education-block {
   margin-top: 45px;
 }
 
+/* ===== Projects ===== */
 .project-card.featured {
   background: linear-gradient(145deg, var(--surface-2), var(--surface));
 }
@@ -693,11 +689,12 @@ body.light .education-block {
 }
 
 .project-link {
+  color: var(--accent);
   font-size: .9rem;
   font-weight: 800;
 }
 
-/* Contact form and page footer */
+/* ===== Contact form and page footer ===== */
 .contact-section {
   border-top: 0;
 }
@@ -777,20 +774,9 @@ body.light .education-block {
   transform: none;
 }
 
-/* ===== Light theme polish ===== */
-body.light {
-  --text: #0b0e14;
-  --muted: #3d4555;
-  --line: rgba(17, 20, 27, .16);
-  --accent: #7b2fd6;
-  --accent-2: #4f5fe8;
-  --danger: #d12c2c;
-  --success: #17803f;
-}
-
-/* soft pastel scene instead of a muddy grey wash over the dark 3D scene */
+/* ===== Light theme component adjustments ===== */
+/* Tint the 3D scene so it stays visible against the lighter page. */
 body.light .spline-bg spline-viewer {
-  /* flips the dark scene to a light one so the robot stays fully visible */
   filter: invert(1) hue-rotate(180deg) contrast(1.05);
 }
 
@@ -806,7 +792,7 @@ body.light .nav-links>a:hover {
   color: var(--accent);
 }
 
-/* frosted white cards with soft shadows */
+/* Frosted white cards with soft shadows. */
 body.light .skill-card,
 body.light .project-card,
 body.light .facts div {
@@ -837,7 +823,7 @@ body.light .nav-toggle {
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, .9), 0 8px 22px rgba(40, 50, 90, .14);
 }
 
-/* keep the code window dark so the syntax colours stay readable */
+/* Keep the code window dark so its syntax colors stay readable. */
 body.light .code-window {
   background: linear-gradient(145deg, rgba(15, 19, 32, .95), rgba(22, 27, 44, .90));
   border-color: rgba(17, 20, 27, .25);
@@ -862,7 +848,7 @@ body.light .tags span {
   color: var(--muted);
 }
 
-/* Responsive layout */
+/* ===== Responsive layout ===== */
 @media (max-width: 900px) {
 
   .hero-grid,
@@ -891,6 +877,33 @@ body.light .tags span {
 
   .hero-card {
     max-width: 700px;
+  }
+
+  /* Reduce expensive blur and refraction effects on smaller devices. */
+  .btn,
+  .skill-card,
+  .project-card,
+  .code-window {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .facts div,
+  .theme-toggle,
+  .nav-toggle,
+  .contact-form input,
+  .contact-form textarea {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .site-header {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  .reveal {
+    transition-duration: .4s;
   }
 }
 
@@ -950,40 +963,9 @@ body.light .tags span {
   }
 }
 
-/* ===== Mobile performance ===== */
-/* phones & tablets: no 3D scene, just the plain page background (dark in dark mode) */
+/* Use a plain background when the 3D scene is disabled on mobile. */
 body.no-3d .spline-bg {
   background: var(--bg);
-}
-
-@media (max-width: 900px) {
-
-  /* blur + glass-bending filters are very expensive on phone GPUs: use light blur only */
-  .btn,
-  .skill-card,
-  .project-card,
-  .code-window {
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-
-  .facts div,
-  .theme-toggle,
-  .nav-toggle,
-  .contact-form input,
-  .contact-form textarea {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
-
-  .site-header {
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-  }
-
-  .reveal {
-    transition-duration: .4s;
-  }
 }
 
 @media (hover: none) {
