@@ -1,6 +1,5 @@
-// Desktop / laptop: load the 3D Spline robot (after the page is usable).
-// Phones & tablets (small or touch-only screens): no 3D at all, plain dark background.
 (function () {
+  // The 3D scene is decorative, so skip it on small or touch-first screens.
   var isPhoneOrTablet = window.matchMedia(
     "(max-width: 900px), (hover: none) and (pointer: coarse)"
   ).matches;
@@ -19,6 +18,7 @@
     document.head.appendChild(s);
   }
 
+  // Wait until the page is loaded and the browser is idle before loading Spline.
   function whenIdle() {
     if ("requestIdleCallback" in window) {
       requestIdleCallback(loadViewer, { timeout: 2500 });

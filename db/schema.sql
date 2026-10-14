@@ -1,5 +1,6 @@
 -- Run automatically by `npm run db:setup` (safe to run more than once)
 
+-- Public project cards shown in the portfolio's Projects section.
 CREATE TABLE IF NOT EXISTS projects (
   id          SERIAL PRIMARY KEY,
   title       VARCHAR(120)  NOT NULL,
@@ -10,6 +11,7 @@ CREATE TABLE IF NOT EXISTS projects (
   created_at  TIMESTAMPTZ   NOT NULL DEFAULT now()
 );
 
+-- Messages submitted through the contact form.
 CREATE TABLE IF NOT EXISTS messages (
   id         SERIAL PRIMARY KEY,
   name       VARCHAR(100) NOT NULL,

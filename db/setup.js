@@ -1,9 +1,9 @@
-// Creates the tables and loads your projects: `npm run db:setup`
 const fs = require("fs");
 const path = require("path");
 const pool = require("./pool");
 const projects = require("./seed-data");
 
+// Create the tables and load the project's current cards from seed-data.js.
 (async () => {
   if (!process.env.DATABASE_URL) {
     console.error("DATABASE_URL is not set. Copy .env.example to .env and fill it in.");
@@ -12,6 +12,7 @@ const projects = require("./seed-data");
   const client = await pool.connect();
   try {
     await client.query(fs.readFileSync(path.join(__dirname, "schema.sql"), "utf8"));
+    // Replace the project list in one transaction so a failed insert can be rolled back.
     await client.query("BEGIN");
     await client.query("DELETE FROM projects");
     for (const [i, p] of projects.entries()) {

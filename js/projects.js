@@ -1,6 +1,4 @@
-// Loads projects from the database (GET /api/projects) and renders them with the
-// existing .project-card markup/classes, so the design is unchanged.
-// If the API is unreachable, the static card already in index.html stays visible.
+// Keep the HTML fallback unless the API returns project data to display.
 (async function loadProjects() {
   const grid = document.querySelector(".projects-grid");
   if (!grid) return;
@@ -21,6 +19,7 @@
       number.className = "project-number";
       number.textContent = String(index + 1).padStart(2, "0");
 
+      // Use textContent for database values so they stay plain text in the page.
       const title = document.createElement("h3");
       title.textContent = project.title;
 
@@ -38,7 +37,7 @@
       const link = document.createElement("a");
       link.className = "project-link";
       link.textContent = "View project ↗";
-      // only allow http(s) links from the database
+      // Only allow http(s) links from the database.
       link.href = /^https?:\/\//i.test(project.link_url) ? project.link_url : "#";
       if (link.href !== "#" && !link.href.endsWith("#")) {
         link.target = "_blank";
@@ -49,6 +48,6 @@
       grid.appendChild(card);
     });
   } catch (err) {
-    // keep the static fallback card
+    // If the request fails, leave the starter card in place.
   }
 })();

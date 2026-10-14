@@ -1,5 +1,4 @@
-// EDIT THIS FILE: put your real projects here, then run `npm run db:setup`.
-// Running setup again replaces the projects table contents with this list.
+// These are the project cards loaded by `npm run db:setup`.
 module.exports = [
   {
     title: "Personal Portfolio Website",

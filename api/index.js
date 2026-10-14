@@ -1,2 +1,2 @@
-// Vercel serverless entry point. vercel.json rewrites /api/* to this file.
-module.exports = require("../app");
+// Vercel routes API requests through the shared Express application.
+module.exports = require("../lib/app");

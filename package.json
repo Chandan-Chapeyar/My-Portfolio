@@ -2,10 +2,9 @@
   "name": "chandan-portfolio",
   "version": "1.0.0",
   "description": "Full stack portfolio: HTML/CSS/JS frontend, Node.js + Express backend, PostgreSQL database",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
+    "start": "node dev-server.js",
+    "dev": "node --watch dev-server.js",
     "db:setup": "node db/setup.js"
   },
   "engines": {
